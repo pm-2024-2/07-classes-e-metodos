@@ -1,6 +1,10 @@
-class Estatistica { // ESCOPO dos métodos abaixo
+import java.util.Arrays;
 
+class Estatistica { // ESCOPO dos métodos abaixo
+// líder técnico, arquiteta de software, senior engineer
     static int media(int[] inteiros) {
+        Estatistica.valida(inteiros);
+
         int soma = 0;
         for (var i = 0; i < inteiros.length; i++) {
             soma += inteiros[i];
@@ -9,11 +13,7 @@ class Estatistica { // ESCOPO dos métodos abaixo
     }
 
     static int max(int[] inteiros) {
-        // validação: guard clause
-        if (inteiros.length == 0) {
-            // throw => lançar
-            throw new IllegalArgumentException("o array está vazio");
-        }
+        valida(inteiros);
 
         int max = inteiros[0];
         for (var i = 1; i < inteiros.length; i++) {
@@ -25,9 +25,7 @@ class Estatistica { // ESCOPO dos métodos abaixo
     }
 
     static int min(int[] inteiros) {
-        if (inteiros.length == 0) {
-            throw new IllegalArgumentException("o array está vazio");
-        }
+        valida(inteiros);
 
         int min = inteiros[0];
         for (var i = 1; i < inteiros.length; i++) {
@@ -36,5 +34,20 @@ class Estatistica { // ESCOPO dos métodos abaixo
             }
         }
         return min;
+    }
+
+    // void: não retorno de valor
+    // private: visível apenas dentro
+    // do próprio módulo (classe)
+    private static void valida(int[] inteiros) {
+        if (inteiros.length == 0) {
+            throw new IllegalArgumentException("o array está vazio");
+        }
+    }
+
+    static int mediana(int[] valores) {
+        valida(valores);
+        Arrays.sort(valores);
+        return valores[valores.length / 2];
     }
 }
