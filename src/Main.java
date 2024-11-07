@@ -41,9 +41,22 @@ class Main { // escopo {}
     System.out.println(mediana2); // deve dar 9
 
 
-  }
-  
-  
+    // EXERCÍCIO ============================================================
+    String curso = "TADS";
+    String aluno = "ALUCARD";
+    int semestre = 2;
 
+    System.out.println("O(A) estudante " + aluno + " está matriculado(a) no " + semestre + "º semestre do curso " + curso);
+
+    // TODO: implementar a classe Texto e método formatar.
+    // Não pode usar o recurso de substring e replace do Java, apenas o básico de percorrer e concatenar strings.
+    // Pode (e é recomendado) dividir a funcionalidade em métodos adicionais.
+    String msg = Texto.formatar("O(A) estudante %% está matriculado(a) no %%º semestre do curso %%", aluno, semestre, curso);
+    System.out.println(msg);
+
+    // TODO: inverted string, ex.: tads -> sdat, não pode usar as classes prontas do Java.
+    String reversed = Texto.inverter(aluno);
+    System.out.println(reversed);
+  }
 }
 
